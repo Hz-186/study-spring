@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: study-spring-c
+  datasource:
+    url: ${BOOK_DB_URL:jdbc:mysql://localhost:3306/study_db?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true}
+    username: ${BOOK_DB_USER:root}
+    password: ${BOOK_DB_PASSWORD:root}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    open-in-view: false
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+
+  data:
+    redis:
+      host: ${BOOK_REDIS_HOST:localhost}
+      port: ${BOOK_REDIS_PORT:6379}
+      connect-timeout: 2s
+      timeout: 2s
+
+external:
+  post-api:
+    base-url: ${POST_API_BASE_URL:https://jsonplaceholder.typicode.com}
